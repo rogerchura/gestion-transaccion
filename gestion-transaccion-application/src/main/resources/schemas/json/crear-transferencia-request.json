@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "originatingAccountNumber",
+    "counterpartyAccountNumber",
+    "amount",
+    "currency",
+    "type"
+  ],
+  "properties": {
+    "originatingAccountNumber": {
+      "type": "string",
+      "not": {
+        "type": "null"
+      },
+      "pattern": "^[0-9]*$",
+      "maxLength": 10,
+      "minLength": 1
+    },
+    "counterpartyAccountNumber": {
+      "type": "string",
+      "not": {
+        "type": null
+      },
+      "pattern": "^[0-9]*$",
+      "maxLength": 10,
+      "minLength": 1
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "nroCuenta",
+    "tipoCuenta",
+    "moneda",
+    "idCliente"
+  ],
+  "properties": {
+    "nroCuenta": {
+      "type": "number",
+      "minimum": 0
+    },
+    "tipoCuenta": {
+      "type": "string",
+      "not": {
+        "type": "null"
+      },
+      "enum": ["CA", "CC"]
+    },
+    "moneda": {
+      "type": "string",
+      "not": {
+        "type": "null"
+      },
+      "enum": ["BOB", "USD"]
+    },
+    "idCliente": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

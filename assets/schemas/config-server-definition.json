@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "spring",
+    "management"
+  ],
+  "properties": {
+    "spring": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rabbitmq": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "host",
+            "port",
+            "username",
+            "password"
+          ]
+        },
+        "cloud": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "bus": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "refresh": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "enabled"
+                  ]
+                }
+              },
+              "required": [
+                "enabled",
+                "id",
+                "refresh"
+              ]
+            }
+          },
+          "required": [
+            "bus"
+          ]
+        }
+      },
+      "required": [
+        "rabbitmq",
+        "cloud"
+      ]
+    },
+    "management": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "endpoints"
+      ],
+      "properties": {
+        "endpoints": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "web"
+          ],
+          "properties": {
+            "web": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "exposure"
+              ],
+              "properties": {
+                "exposure": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "include"
+                  ],
+                  "properties": {
+                    "include": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

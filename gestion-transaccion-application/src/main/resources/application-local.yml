@@ -1,0 +1,16 @@
+server:
+  port: ${app.port:9980}
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: gestion-transaccion
+  config:
+    import: optional:configserver:${SPRING_CLOUD_CONFIG_ADDRESS}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

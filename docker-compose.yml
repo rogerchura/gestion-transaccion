@@ -1,0 +1,23 @@
+version: '1'
+
+services:
+
+  app:
+    container_name: gestion-transaccion
+    build: .
+    ports:
+      - 9980:9980
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    links:
+      - mysqlTrx
+
+  mysqlTrx:
+    container_name: mysqlTrx
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: desa
+    ports:
+      - 4406:3306

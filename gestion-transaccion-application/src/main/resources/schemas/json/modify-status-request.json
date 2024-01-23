@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "not": {
+        "type": "null"
+      },
+      "enum": ["CREATED", "REJECTED", "PROCESSED"]
+    }
+  }
+}
